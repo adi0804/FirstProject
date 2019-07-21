@@ -15,9 +15,8 @@ pipeline {
     				if (env.BRANCH_NAME != null) {
 					echo "${env.BRANCH_NAME}"
    				}
-}
 			}
-		}
+			}
 		stage('Test'){
 			steps{
 				echo "Test Stage"
