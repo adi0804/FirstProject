@@ -2,7 +2,7 @@
 pipeline {
 	agent any
 	parameters {
-  choice choices: 'master','develop', description: 'Multiple Branches', name: 'branch'
+  choice choices: ['master'\n'develop'], description: 'Multiple Branches', name: 'branch'
 }
 	options {
       		buildDiscarder(logRotator(numToKeepStr: '3'))
