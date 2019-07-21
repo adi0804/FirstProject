@@ -5,9 +5,11 @@ pipeline {
     //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
     IMAGE = readMavenPom().getArtifactId()
     VERSION = readMavenPom().getVersion()
-    NAME = readMavenPom().getfinalName()
     }
-
+	def jarname(){
+		def pom = new XmlSlurper().parse(new File("pom.xml"))
+		def pomv = pom.fileName.toString()
+	}
 //	parameters {
 //  choice choices: 'master'\n'develop', description: 'Multiple Branches', name: 'branch'
 //}
@@ -29,6 +31,7 @@ pipeline {
 				echo "Test Stage"
 				echo "${VERSION}"
 				echo "${NAME}"
+				echo "${pomv}"
 			}
 		}
 		stage('Deploy'){
