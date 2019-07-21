@@ -13,7 +13,7 @@ pipeline {
 				echo "Build Stage"
 				//sh 'printenv'0
     				//if (env.BRANCH_NAME != null) {
-					echo "${BRANCH_NAME}"
+					echo "${env.BRANCH_NAME}"
    				//}
 			}
 			}
