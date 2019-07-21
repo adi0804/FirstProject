@@ -8,6 +8,10 @@ pipeline {
       		buildDiscarder(logRotator(numToKeepStr: '3'))
     		}
 	stages{
+		stage('Check out code'){
+					checkout scm
+					echo "My branch is: ${env.BRANCH_NAME}"
+	}
 		stage('Build'){
 			steps{
 				echo "Build Stage"
