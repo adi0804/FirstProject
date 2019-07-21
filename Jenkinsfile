@@ -4,7 +4,6 @@ pipeline {
 	options {
       		buildDiscarder(logRotator(numToKeepStr: '3'))
     		}
-}
 	stages{
 		stage('Build'){
 			steps{
