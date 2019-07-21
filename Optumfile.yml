@@ -1,0 +1,13 @@
+apiVersion: v1
+metadata:
+
+# Required Properties
+# askId: CDSM DXP2
+  askId: UHGWM110-023280
+  caAgileId: WorkflowAutomation
+  projectKey: com.optum.dxp.library:adt-automation2.5.1
+  projectFriendlyName: ADT251Automation
+  componentType: Code
+
+# Sonar Properties
+  targetQG: GATE_EXEMPT
