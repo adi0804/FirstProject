@@ -1,9 +1,9 @@
 #!/usr/bin/env groovy
 pipeline {
 	agent any
-	parameters {
-  choice choices: 'master'\n'develop', description: 'Multiple Branches', name: 'branch'
-}
+//	parameters {
+//  choice choices: 'master'\n'develop', description: 'Multiple Branches', name: 'branch'
+//}
 	options {
       		buildDiscarder(logRotator(numToKeepStr: '3'))
     		}
@@ -11,6 +11,7 @@ pipeline {
 		stage('Build'){
 			steps{
 				echo "Build Stage"
+				sh 'printenv'
 			}
 		}
 		stage('Test'){
