@@ -11,7 +11,7 @@ pipeline {
 		stage('Build'){
 			steps{
 				echo "Build Stage"
-				sh 'printenv'
+				//sh 'printenv'
 			}
 		}
 		stage('Test'){
