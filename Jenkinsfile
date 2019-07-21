@@ -1,9 +1,17 @@
 #!/usr/bin/env groovy
 pipeline {
 	agent any
-	    options {
-      buildDiscarder(logRotator(numToKeepStr: '3'))
-    }
+	  environment {
+    //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
+    IMAGE = readMavenPom().getArtifactId()
+    VERSION = readMavenPom().getVersion()
+  }
+	
+	
+	options {
+      		buildDiscarder(logRotator(numToKeepStr: '3'))
+    		}
+}
 	stages{
 		stage('Build'){
 			steps{
