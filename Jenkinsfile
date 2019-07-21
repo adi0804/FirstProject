@@ -1,11 +1,11 @@
 #!/usr/bin/env groovy
 pipeline {
 	agent any
-	  environment {
+//environment {
     //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
-    IMAGE = readMavenPom().getArtifactId()
-    VERSION = readMavenPom().getVersion()
-  }
+  //  IMAGE = readMavenPom().getArtifactId()
+  //  VERSION = readMavenPom().getVersion()
+//  }
 	
 	
 	options {
