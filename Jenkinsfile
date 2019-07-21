@@ -11,7 +11,11 @@ pipeline {
 		stage('Build'){
 			steps{
 				echo "Build Stage"
-				//sh 'printenv'
+				//sh 'printenv'0
+    				if (env.BRANCH_NAME != null) {
+					echo "${env.BRANCH_NAME}"
+   				}
+}
 			}
 		}
 		stage('Test'){
