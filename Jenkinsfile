@@ -1,6 +1,12 @@
 #!/usr/bin/env groovy
 pipeline {
 	agent any
+	 environment {
+    //Use Pipeline Utility Steps plugin to read information from pom.xml into env variables
+    IMAGE = readMavenPom().getArtifactId()
+    VERSION = readMavenPom().getVersion()
+    }
+
 //	parameters {
 //  choice choices: 'master'\n'develop', description: 'Multiple Branches', name: 'branch'
 //}
@@ -20,6 +26,7 @@ pipeline {
 		stage('Test'){
 			steps{
 				echo "Test Stage"
+				echo "${VERSION}"
 			}
 		}
 		stage('Deploy'){
