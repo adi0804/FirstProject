@@ -9,8 +9,10 @@ pipeline {
     		}
 	stages{
 		stage('Check out code'){
+			steps{
 					checkout scm
 					echo "My branch is: ${env.BRANCH_NAME}"
+			}
 	}
 		stage('Build'){
 			steps{
