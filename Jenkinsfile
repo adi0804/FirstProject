@@ -37,7 +37,16 @@ pipeline {
 }
 }
 	def jarname(){
-		def pom = new XmlSlurper().parse(new File("pom.xml"))
-		def pomv = project.build.finalName()
-		env.PIPELINE_VERSION = pomv
+		
+		if(env.BRANCH_NAME == "test"){
+			def project = new XmlSlurper().parse(new File("pom.xml"))
+			temp = project.build.finalName[0].value
+			project.build.finalName[0].value = temp + 'test'+ ${VERSION}
+			def pom = groovy.xml.XmlUtil.serialize(xml)
+			env.PIPELINE_VERSION = project.build.finalName[0].value
+		}
+			
+			
+		
+
 	}
