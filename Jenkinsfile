@@ -6,10 +6,6 @@ pipeline {
     IMAGE = readMavenPom().getArtifactId()
     VERSION = readMavenPom().getVersion()
     }
-	def jarname(){
-		def pom = new XmlSlurper().parse(new File("pom.xml"))
-		def pomv = pom.fileName.toString()
-	}
 //	parameters {
 //  choice choices: 'master'\n'develop', description: 'Multiple Branches', name: 'branch'
 //}
@@ -41,3 +37,7 @@ pipeline {
 		}
 }
 }
+	def jarname(){
+		def pom = new XmlSlurper().parse(new File("pom.xml"))
+		def pomv = pom.fileName.toString()
+	}
