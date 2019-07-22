@@ -38,6 +38,6 @@ pipeline {
 }
 	def jarname(){
 		def pom = new XmlSlurper().parse(new File("pom.xml"))
-		def pomv = pom.fileName.toString()
+		def pomv = project.build.finalName
 		env.PIPELINE_VERSION = pomv
 	}
