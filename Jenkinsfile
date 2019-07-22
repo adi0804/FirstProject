@@ -26,7 +26,6 @@ pipeline {
 			steps{
 				echo "Test Stage"
 				echo "${VERSION}"
-				echo "${NAME}"
 				echo "${pomv}"
 			}
 		}
