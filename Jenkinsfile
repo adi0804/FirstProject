@@ -26,7 +26,7 @@ pipeline {
 			steps{
 				echo "Test Stage"
 				echo "${VERSION}"
-				echo "${pomv}"
+				echo "${env.PIPELINE_VERSION}"
 			}
 		}
 		stage('Deploy'){
@@ -39,4 +39,5 @@ pipeline {
 	def jarname(){
 		def pom = new XmlSlurper().parse(new File("pom.xml"))
 		def pomv = pom.fileName.toString()
+		env.PIPELINE_VERSION = pomv
 	}
