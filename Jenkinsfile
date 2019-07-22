@@ -26,7 +26,7 @@ pipeline {
 			steps{
 				echo "Test Stage"
 				echo "${VERSION}"
-				echo "${env.PIPELINE_VERSION}"
+				echo "${env.PIPELINE_NAME}"
 			}
 		}
 		stage('Deploy'){
@@ -43,7 +43,7 @@ pipeline {
 			temp = project.build.finalName[0].value
 			project.build.finalName[0].value = temp + 'test'+ ${VERSION}
 			def pom = groovy.xml.XmlUtil.serialize(xml)
-			env.PIPELINE_VERSION = project.build.finalName[0].value
+			env.PIPELINE_NAME = project.build.finalName[0].value
 		}
 			
 			
