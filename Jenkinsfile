@@ -42,7 +42,8 @@ pipeline {
 			def project = new XmlSlurper().parse(new File("pom.xml"))
 			temp = project.build.finalName[0].value
 			project.build.finalName[0].value = temp + 'test'+ ${VERSION}
-			def pom = groovy.xml.XmlUtil.serialize(xml)
+			def updatedxml = groovy.xml.XmlUtil.serialize(project)
+			project.write(updatedXml)
 			env.PIPELINE_NAME = project.build.finalName[0].value
 		}
 			
